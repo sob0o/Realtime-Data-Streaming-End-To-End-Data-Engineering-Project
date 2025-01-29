@@ -37,3 +37,5 @@ The project is designed with the following components:
 
 
 
+**I did this project to boost my skills in data engineering and to test the technlogies used nowadays**
+
