@@ -8,7 +8,7 @@ default_args = {
     'start_date': datetime(2024, 9, 3, 10, 00)
 }
 
-def get_data():
+def get_data(): # Get data from randomuser.me
     import requests
 
     res = requests.get("https://randomuser.me/api/")
@@ -17,7 +17,7 @@ def get_data():
 
     return res
 
-def format_data(res):
+def format_data(res): # Format the data
     data = {}
     location = res['location']
     data['id'] = str(uuid.uuid4())
@@ -36,7 +36,7 @@ def format_data(res):
 
     return data
 
-def stream_data():
+def stream_data(): # Stream data to Kafka
     import json
     from kafka import KafkaProducer
     import time
@@ -57,7 +57,7 @@ def stream_data():
             logging.error(f'An error occured: {e}')
             continue
 
-with DAG('user_automation',
+with DAG('user_automation', # Define the DAG
          default_args=default_args,
          schedule_interval='@daily',
          catchup=False) as dag:
