@@ -17,7 +17,7 @@ def get_data(): # Get data from randomuser.me
 
     return res
 
-def format_data(res): # Format the data
+def format_data(res): # Format the data // Strcture the Data to be sent to Kafka
     data = {}
     location = res['location']
     data['id'] = str(uuid.uuid4())
